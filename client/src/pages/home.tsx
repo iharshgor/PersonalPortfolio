@@ -4,7 +4,7 @@ import AboutSection from "@/components/sections/about";
 import SkillsSection from "@/components/sections/skills";
 import ProjectsSection from "@/components/sections/projects";
 import ExperienceSection from "@/components/sections/experience";
-import ContactSection from "@/components/sections/contact";
+import ContactSection from "@/components/sections/contact-updated";
 import CustomCursor from "@/components/ui/custom-cursor";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";

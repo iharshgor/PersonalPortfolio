@@ -67,11 +67,11 @@ export function SkillsSection() {
   const { ref } = useParallax<HTMLDivElement>();
   
   return (
-    <section id="skills" className="py-24 bg-secondary/50 relative">
+    <section id="skills" className="py-24 relative">
       {/* Background with parallax effect */}
       <div 
         ref={ref}
-        className="absolute inset-0 z-0 opacity-10"
+        className="absolute inset-0 z-0 opacity-5"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
           backgroundSize: "cover",

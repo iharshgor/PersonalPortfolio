@@ -26,8 +26,9 @@ export function Header() {
       let current = "";
       
       sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
+        const sectionHeight = rect.height;
         
         if (scrollY >= sectionTop - 200) {
           current = section.getAttribute("id") || "";
