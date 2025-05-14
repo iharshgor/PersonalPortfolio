@@ -159,13 +159,6 @@ export function HeroSection() {
               src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600" 
               alt="Developer workspace with dual monitors and clean setup" 
               className="rounded-xl shadow-2xl"
-              initial={{ y: 0 }}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 4,
-                ease: "easeInOut"
-              }}
             />
             
             <motion.div 
@@ -194,12 +187,6 @@ export function HeroSection() {
           onClick={(e) => {
             e.preventDefault();
             scrollToSection("about");
-          }}
-          animate={{ y: [0, 10, 0] }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 1.5,
-            ease: "easeInOut"
           }}
           className="text-text-secondary hover:text-accent"
         >

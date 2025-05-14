@@ -114,24 +114,7 @@ export function ExperienceSection() {
         </motion.div>
       </div>
       
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-4 left-0 right-0 flex justify-center"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 1.5,
-            ease: "easeInOut"
-          }}
-          className="text-text-secondary opacity-50 hover:opacity-100 transition-opacity"
-        >
-          <HiChevronDown className="h-6 w-6" />
-        </motion.div>
-      </motion.div>
+      {/* Removed animated chevron */}
     </section>
   );
 }
