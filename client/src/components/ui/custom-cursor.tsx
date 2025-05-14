@@ -53,34 +53,68 @@ export function CustomCursor({ className }: CustomCursorProps) {
 
   return (
     <motion.div
-      className={`fixed pointer-events-none z-[9999] mix-blend-difference ${className}`}
+      className={`fixed pointer-events-none z-[9999] ${className}`}
       style={{
         left: position.x,
         top: position.y,
       }}
       animate={{
-        scale: isPointer ? 1.5 : isClicking ? 0.8 : 1,
         opacity: isVisible ? 1 : 0,
       }}
       transition={{
-        scale: { type: "spring", stiffness: 500, damping: 30 },
         opacity: { duration: 0.2 }
       }}
     >
-      <div className="relative flex items-center justify-center">
-        <div 
-          className={`absolute rounded-full bg-white
-            ${isPointer ? "w-10 h-10 opacity-30" : "w-6 h-6 opacity-50"}`}
-          style={{ 
-            transform: 'translate(-50%, -50%)',
-            backdropFilter: 'blur(2px)'  
-          }}
-        />
-        <div 
-          className="absolute rounded-full bg-white w-2 h-2 opacity-90"
-          style={{ transform: 'translate(-50%, -50%)' }}
-        />
-      </div>
+      {/* Outer ring - always visible */}
+      <motion.div 
+        className="absolute border border-accent/70 rounded-full"
+        style={{ transform: 'translate(-50%, -50%)' }}
+        animate={{
+          width: isPointer ? 40 : 24,
+          height: isPointer ? 40 : 24,
+          opacity: 0.6,
+          scale: isClicking ? 0.8 : 1
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 28
+        }}
+      />
+      
+      {/* Middle ring - decorative */}
+      <motion.div 
+        className="absolute border border-white/30 rounded-full backdrop-blur-sm"
+        style={{ transform: 'translate(-50%, -50%)' }}
+        animate={{
+          width: isPointer ? 28 : 16,
+          height: isPointer ? 28 : 16,
+          opacity: isPointer ? 0.6 : 0.4,
+          scale: isClicking ? 0.9 : 1
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 25
+        }}
+      />
+      
+      {/* Inner dot */}
+      <motion.div 
+        className="absolute bg-accent rounded-full"
+        style={{ transform: 'translate(-50%, -50%)' }}
+        animate={{
+          width: isPointer ? 8 : 6,
+          height: isPointer ? 8 : 6,
+          opacity: 0.9,
+          scale: isClicking ? 0.6 : 1
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 20
+        }}
+      />
     </motion.div>
   );
 }
