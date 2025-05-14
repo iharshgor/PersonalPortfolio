@@ -30,8 +30,8 @@ export function ProjectCard({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, delay }}
       className={cn(
-        "bg-secondary/50 rounded-xl overflow-hidden border border-white/5 h-full flex flex-col",
-        "hover:shadow-2xl hover:shadow-accent/20 hover:border-accent/10",
+        "glass-card overflow-hidden h-full flex flex-col",
+        "hover:shadow-2xl hover:shadow-accent/30 hover:border-accent/10",
         "transition-all duration-500 project-card",
         "hover:translate-y-[-8px] hover:scale-[1.02]"
       )}

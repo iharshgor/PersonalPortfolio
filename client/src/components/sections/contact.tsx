@@ -156,7 +156,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-secondary/50 rounded-xl p-8 border border-white/5"
+            className="glass-card p-8"
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>

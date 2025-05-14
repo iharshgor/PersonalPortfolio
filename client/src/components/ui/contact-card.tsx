@@ -16,7 +16,7 @@ export function ContactCard({ icon, title, value, delay = 0 }: ContactCardProps)
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      className="bg-secondary/50 rounded-xl p-6 border border-white/5 hover:border-accent/20 transition-all duration-300"
+      className="glass-card p-6 hover:border-accent/20 transition-all duration-300"
     >
       <div className="flex items-start space-x-4">
         <div className="bg-accent/20 p-3 rounded-lg">
@@ -57,4 +57,5 @@ export function SocialLink({ href, icon, label, delay = 0 }: SocialLinkProps) {
   );
 }
 
-export default { ContactCard, SocialLink };
+// Using named exports instead of default export
+// export default { ContactCard, SocialLink };

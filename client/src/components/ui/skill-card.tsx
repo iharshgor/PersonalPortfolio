@@ -25,7 +25,7 @@ export function SkillCard({
       transition={{ duration: 0.6, delay: delay }}
       whileHover={{ y: -10, transition: { duration: 0.3 } }}
       className={cn(
-        "bg-primary/80 backdrop-blur-sm rounded-xl p-6 flex flex-col items-center border border-white/5 hover:border-accent/30 transition-all tech-icon",
+        "glass-card p-6 flex flex-col items-center hover:border-accent/30 transition-all tech-icon",
         className
       )}
     >
@@ -42,7 +42,7 @@ export function SkillPill({ title }: { title: string }) {
   return (
     <motion.span
       whileHover={{ scale: 1.05 }}
-      className="px-4 py-2 bg-primary rounded-full text-text-secondary border border-white/5 skill-pill transition-all hover:border-accent/30 hover:shadow-[0_0_15px_rgba(109,40,217,0.6)]"
+      className="px-4 py-2 glass rounded-full text-text-secondary border border-white/5 skill-pill transition-all hover:border-accent/30 hover:shadow-[0_0_15px_rgba(150,100,255,0.6)]"
     >
       {title}
     </motion.span>
