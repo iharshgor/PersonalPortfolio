@@ -12,11 +12,11 @@ import usePageTransition from "@/hooks/use-page-transition";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function HomePage() {
-  // Use the page transition hook to handle full-page transitions
-  const { currentSection, isTransitioning } = usePageTransition({
-    duration: 600,
-    threshold: 150
-  });
+  // Page transition removed as requested
+  // const { currentSection, isTransitioning } = usePageTransition({
+  //   duration: 600,
+  //   threshold: 150
+  // });
   
   // Add Apple-style smooth scrolling
   useEffect(() => {
@@ -49,67 +49,49 @@ export function HomePage() {
     styleSheet.innerText = keyframes;
     document.head.appendChild(styleSheet);
     
-    // Add page transition overlay CSS
-    const transitionStyle = document.createElement("style");
-    transitionStyle.textContent = `
-      .page-transition-overlay {
-        position: fixed;
-        inset: 0;
-        background-color: rgba(11, 10, 15, 0.95);
-        z-index: 100;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.6s cubic-bezier(0.76, 0, 0.24, 1);
-      }
-      
-      .page-transition-overlay.active {
-        opacity: 1;
-      }
-    `;
-    document.head.appendChild(transitionStyle);
-
+    // Page transition CSS removed as requested
+    
     return () => {
       document.documentElement.style.scrollBehavior = "";
       document.body.classList.remove("custom-cursor-enabled");
       document.head.removeChild(styleSheet);
-      document.head.removeChild(transitionStyle);
     };
   }, []);
   
-  // Create a div to show what section we're transitioning to
-  useEffect(() => {
-    const overlay = document.createElement('div');
-    overlay.className = 'page-transition-overlay';
-    
-    // Add section indicator
-    const indicator = document.createElement('div');
-    indicator.className = 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-accent/80 text-4xl font-bold opacity-0 transition-opacity duration-500';
-    overlay.appendChild(indicator);
-    
-    document.body.appendChild(overlay);
-    
-    // Update overlay based on transition state
-    if (isTransitioning) {
-      overlay.classList.add('active');
-      
-      // Show section name when transitioning
-      if (currentSection) {
-        indicator.textContent = currentSection.charAt(0).toUpperCase() + currentSection.slice(1);
-        setTimeout(() => {
-          indicator.style.opacity = '1';
-        }, 300);
-      }
-    } else {
-      overlay.classList.remove('active');
-      indicator.style.opacity = '0';
-    }
-    
-    return () => {
-      if (document.body.contains(overlay)) {
-        document.body.removeChild(overlay);
-      }
-    };
-  }, [isTransitioning, currentSection]);
+  // Page transition overlay removed as requested
+  // useEffect(() => {
+  //   const overlay = document.createElement('div');
+  //   overlay.className = 'page-transition-overlay';
+  //   
+  //   // Add section indicator
+  //   const indicator = document.createElement('div');
+  //   indicator.className = 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-accent/80 text-4xl font-bold opacity-0 transition-opacity duration-500';
+  //   overlay.appendChild(indicator);
+  //   
+  //   document.body.appendChild(overlay);
+  //   
+  //   // Update overlay based on transition state
+  //   if (isTransitioning) {
+  //     overlay.classList.add('active');
+  //     
+  //     // Show section name when transitioning
+  //     if (currentSection) {
+  //       indicator.textContent = currentSection.charAt(0).toUpperCase() + currentSection.slice(1);
+  //       setTimeout(() => {
+  //         indicator.style.opacity = '1';
+  //       }, 300);
+  //     }
+  //   } else {
+  //     overlay.classList.remove('active');
+  //     indicator.style.opacity = '0';
+  //   }
+  //   
+  //   return () => {
+  //     if (document.body.contains(overlay)) {
+  //       document.body.removeChild(overlay);
+  //     }
+  //   };
+  // }, [isTransitioning, currentSection]);
 
   return (
     <>
